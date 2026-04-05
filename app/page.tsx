@@ -244,7 +244,11 @@ function AgentCard({ agent }: { agent: IcwaAgent }) {
           </a>
         )}
         {agent.icwa_email_1 && (
-          <a href={`mailto:${agent.icwa_email_1}`} style={{ color: '#006064', textDecoration: 'none' }}>
+          <a
+            href={`mailto:${agent.icwa_email_1}`}
+            onClick={(e) => { e.preventDefault(); window.top!.location.href = `mailto:${agent.icwa_email_1}` }}
+            style={{ color: '#006064', textDecoration: 'none', cursor: 'pointer' }}
+          >
             ✉ {agent.icwa_email_1}
           </a>
         )}
