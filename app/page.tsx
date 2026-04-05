@@ -239,12 +239,12 @@ function AgentCard({ agent }: { agent: IcwaAgent }) {
 
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', fontSize: '0.85rem', color: '#555', marginTop: '6px' }}>
         {agent.icwa_phone_1 && (
-          <a href={`tel:${agent.icwa_phone_1.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer" style={{ color: '#006064', textDecoration: 'none' }}>
+          <a href={`tel:${agent.icwa_phone_1.replace(/\D/g, '')}`} style={{ color: '#006064', textDecoration: 'none' }}>
             📞 {agent.icwa_phone_1}
           </a>
         )}
         {agent.icwa_email_1 && (
-          <a href={`mailto:${agent.icwa_email_1}`} target="_blank" rel="noopener noreferrer" style={{ color: '#006064', textDecoration: 'none' }}>
+          <a href={`mailto:${agent.icwa_email_1}`} style={{ color: '#006064', textDecoration: 'none' }}>
             ✉ {agent.icwa_email_1}
           </a>
         )}
