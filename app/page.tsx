@@ -246,7 +246,15 @@ function AgentCard({ agent }: { agent: IcwaAgent }) {
         {agent.icwa_email_1 && (
           <a
             href={`mailto:${agent.icwa_email_1}`}
-            onClick={(e) => { e.preventDefault(); window.top!.location.href = `mailto:${agent.icwa_email_1}` }}
+            onClick={(e) => {
+              if (window.self !== window.top) {
+                e.preventDefault()
+                window.parent.postMessage(
+                  { type: 'OPEN_MAILTO', email: agent.icwa_email_1 },
+                  'https://icwaexpert.com'
+                )
+              }
+            }}
             style={{ color: '#006064', textDecoration: 'none', cursor: 'pointer' }}
           >
             ✉ {agent.icwa_email_1}
